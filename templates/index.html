@@ -1,7 +1,10 @@
+filePath = "templates/index.html"
+
+updated_code = """
 <home>
    <body>
       <title>Plagiarism Checker</title>
-      <form action="http://localhost:5000" method="POST">
+      <form action="http://127.0.0.1:5000" method="POST">
          <p>Input Text : </p>
          <p><textarea name="query" rows="8" cols="50" autofocus>{{query}}</textarea></p>
          <br>
@@ -11,3 +14,7 @@
       </form>
    </body>
 </home>
+"""
+
+with open(filePath, "w") as file:
+    file.write(updated_code)
