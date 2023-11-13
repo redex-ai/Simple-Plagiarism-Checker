@@ -9,5 +9,14 @@
          <br>
          <p><h3>{{output}}</h3></p>
       </form>
+
+      <form action="/check_jaccard" method="POST">
+         <p>Input Text for Jaccard Similarity : </p>
+         <p><textarea name="jaccard_query" rows="8" cols="50" autofocus>{{jaccard_query}}</textarea></p>
+         <br>
+         <p><input type="submit" name="submit" value="CHECK JACCARD SIMILARITY"></p>
+         <br>
+         <p><h3>{{jaccard_output}}</h3></p>
+      </form>
    </body>
 </home>
