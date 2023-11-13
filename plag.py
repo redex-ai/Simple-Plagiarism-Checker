@@ -100,6 +100,37 @@ def cosineSimilarity():
         output = "Please Enter Valid Data"
         return render_template('index.html', query=inputQuery, output=output)
 
+@app.route("/check_jaccard", methods=['POST'])
+def jaccardSimilarity():
+    try:
+        logger.info("Received POST request for Jaccard similarity")
+        inputQuery = request.form['jaccard_query']  # Change 'query' to 'jaccard_query'
+        lowercaseQuery = inputQuery.lower()
+
+        queryWordList = re.sub("[^\w]", " ", lowercaseQuery).split()  # Replace punctuation by space and split
+
+        fd = open("database1.txt", "r")
+        database1 = fd.read().lower()
+
+        databaseWordList = re.sub("[^\w]", " ", database1).split()  # Replace punctuation by space and split
+
+        querySet = set(queryWordList)
+        databaseSet = set(databaseWordList)
+
+        intersection = querySet.intersection(databaseSet)
+        union = querySet.union(databaseSet)
+
+        jaccardSimilarity = len(intersection) / len(union) * 100
+
+        output = "Input query text has a Jaccard similarity of %0.02f%% with the database." % jaccardSimilarity
+
+        return render_template('index.html', jaccard_query=inputQuery, jaccard_output=output)
+    except Exception as e:
+        logger.error("Exception caught: %s", str(e))
+        output = "Please Enter Valid Data"
+        return render_template('index.html', jaccard_query="", jaccard_output=output)
+
+
 if __name__ == "__main__":
     logger.info("Starting web application")
     app.run()
