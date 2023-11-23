@@ -18,5 +18,14 @@
          <br>
          <p><h3>{{jaccard_output}}</h3></p>
       </form>
+
+      <form action="/check_plagiarism_new" method="POST">
+         <p>Input Text for New Plagiarism Technique : </p>
+         <p><textarea name="new_plagiarism_query" rows="8" cols="50" autofocus>{{new_plagiarism_query}}</textarea></p>
+         <br>
+         <p><input type="submit" name="submit" value="CHECK NEW PLAGIARISM TECHNIQUE"></p>
+         <br>
+         <p><h3>{{new_plagiarism_output}}</h3></p>
+      </form>
    </body>
 </home>
