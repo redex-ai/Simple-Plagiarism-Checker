@@ -1,0 +1,11 @@
+/* Existing styles... */
+
+/* Styles for the new plagiarism check form and results */
+form {
+    margin-bottom: 20px;
+}
+
+#new_plagiarism_output {
+    color: #333;
+    font-size: 1.2em;
+}
